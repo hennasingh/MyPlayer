@@ -13,7 +13,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         myToast("Hello World")
 
-      }
+        val textView = findViewById<TextView>(R.id.textView)
+        textView.text = "Hello Kotlin"
+
+        //replacement of String.format
+        myToast("Hello ${textView.text}, how are you ?")
+
+    }
 
     private fun myToast(text: String) { // after : is return value
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
