@@ -2,13 +2,9 @@ package geek.com.myplayer
 
 open class Person (name:String, age: Int){
 
-    val name: String
-    val age: Int
+    val name: String = name
+    val age: Int = age
 
-    init{
-        this.name = name
-        this.age = age
-    }
 }
 
 class Developer(name:String) : Person(name, 20)
