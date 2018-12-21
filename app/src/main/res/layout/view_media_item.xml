@@ -7,10 +7,12 @@
       android:orientation="vertical"
       android:padding="2dp">
   <ImageView
+        android:id="@+id/thumbUrlView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         tools:src="@mipmap/ic_launcher"/>
   <TextView
+        android:id="@+id/titleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#333"
