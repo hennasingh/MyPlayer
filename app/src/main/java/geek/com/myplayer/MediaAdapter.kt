@@ -11,7 +11,8 @@ import java.util.zip.Inflater
 class MediaAdapter(private val items: List<MediaItem>) : RecyclerView.Adapter<MediaAdapter.MediaViewHolder>() {
 
     override fun onCreateViewHolder(container: ViewGroup, viewType: Int): MediaViewHolder {
-        val view = LayoutInflater.from(container.context).inflate(R.layout.view_media_item, container, false)
+        //val view = LayoutInflater.from(container.context).inflate(R.layout.view_media_item, container, false)
+        val view = container.inflate(R.layout.view_media_item)
         return MediaViewHolder(view)
     }
 
