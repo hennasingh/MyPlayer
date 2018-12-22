@@ -28,7 +28,7 @@ class MediaAdapter(private val items: List<MediaItem>) : RecyclerView.Adapter<Me
 
         fun bind(item: MediaItem){
             itemView.titleView.text = item.title
-            Picasso.get().load(item.thumbUrl).into(itemView.thumbUrlView)
+            itemView.thumbUrlView.loadUrl(item.thumbUrl)
         }
     }
 }
