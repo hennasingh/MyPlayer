@@ -3,6 +3,7 @@ package geek.com.myplayer
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
@@ -17,3 +18,7 @@ fun RecyclerView.ViewHolder.toast(message:String)= itemView.context.toast(messag
 fun ViewGroup.inflate(layoutRes: Int) = LayoutInflater.from(context).inflate(layoutRes,this,false)
 
 fun ImageView.loadUrl(url: String) = Picasso.get().load(url).into(this)
+
+inline fun<reified T: View> View.find(idRes: Int): T {
+    return findViewById(idRes) as T
+}
