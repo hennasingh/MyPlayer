@@ -15,25 +15,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val v: View
-
-        //Java Code
-        v.setOnClickListener(object: View.OnClickListener {
-            override fun onClick(v: View?) {
-                toast("View Clicked")
-            }
-        })
-
-        //Kotlin Code
-        v.setOnClickListener{
-            toast("View Clicked")
-        }
-    }
-
-    private fun toast(message: String): Unit {
-        Toast.makeText(this,message, Toast.LENGTH_SHORT).show()
-    }
-
+        toast("Hello")
+        applicationContext.toast("Message")
+     }
 
 }
 
