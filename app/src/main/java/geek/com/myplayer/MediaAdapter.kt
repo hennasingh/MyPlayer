@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_media_item.view.*
+import okhttp3.MediaType
 import java.util.zip.Inflater
 
 class MediaAdapter(private val items: List<MediaItem>) : RecyclerView.Adapter<MediaAdapter.MediaViewHolder>() {
@@ -28,12 +29,18 @@ class MediaAdapter(private val items: List<MediaItem>) : RecyclerView.Adapter<Me
 
     class MediaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        val title = itemView.find<TextView>(R.id.titleView)
-        val image = itemView.find<ImageView>(R.id.thumbUrlView)
+        val title = itemView.find<TextView>(R.id.media_title)
+        val image = itemView.find<ImageView>(R.id.media_thumb)
+        val video = itemView.find<ImageView>(R.id.media_video_indicator)
 
         fun bind(item: MediaItem){
             title.text = item.title
             image.loadUrl(item.thumbUrl)
+         video.visibility = when (item.type){
+             MediaItem.Type.PHOTO -> View.GONE
+             MediaItem.Type.VIDEO -> View.VISIBLE
+         }
+
         }
     }
 }
