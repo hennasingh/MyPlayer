@@ -4,9 +4,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_media_item.view.*
 import okhttp3.MediaType
 import java.util.zip.Inflater
@@ -30,15 +27,15 @@ class MediaAdapter(private val items: List<MediaItem>) : RecyclerView.Adapter<Me
     class MediaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
 
-        fun bind(item: MediaItem){
-            itemView.media_title.text = item.title
-            itemView.media_thumb.loadUrl(item.thumbUrl)
-            itemView.media_video_indicator.visibility = when (item.type){
-             MediaItem.Type.PHOTO -> View.GONE
-             MediaItem.Type.VIDEO -> View.VISIBLE
+        fun bind(item: MediaItem) = with(itemView) {
+            media_title.text = item.title
+            media_thumb.loadUrl(item.thumbUrl)
+            media_video_indicator.visibility = when (item.type) {
+                MediaItem.Type.PHOTO -> View.GONE
+                MediaItem.Type.VIDEO -> View.VISIBLE
+            }
          }
+     }
 
-        }
-    }
 }
 
