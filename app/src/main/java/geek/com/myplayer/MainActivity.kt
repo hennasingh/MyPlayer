@@ -1,13 +1,9 @@
 package geek.com.myplayer
 
-import android.content.Context
+
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.logging.Logger
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,8 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        toast("Hello")
-        applicationContext.toast("Message")
+        recycler.adapter = MediaAdapter(emptyList())
 
 
      }

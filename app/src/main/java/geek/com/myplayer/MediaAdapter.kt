@@ -29,14 +29,11 @@ class MediaAdapter(private val items: List<MediaItem>) : RecyclerView.Adapter<Me
 
     class MediaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        val title = itemView.find<TextView>(R.id.media_title)
-        val image = itemView.find<ImageView>(R.id.media_thumb)
-        val video = itemView.find<ImageView>(R.id.media_video_indicator)
 
         fun bind(item: MediaItem){
-            title.text = item.title
-            image.loadUrl(item.thumbUrl)
-         video.visibility = when (item.type){
+            itemView.media_title.text = item.title
+            itemView.media_thumb.loadUrl(item.thumbUrl)
+            itemView.media_video_indicator.visibility = when (item.type){
              MediaItem.Type.PHOTO -> View.GONE
              MediaItem.Type.VIDEO -> View.VISIBLE
          }
