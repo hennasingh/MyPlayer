@@ -8,7 +8,12 @@ import kotlinx.android.synthetic.main.view_media_item.view.*
 import okhttp3.MediaType
 import java.util.zip.Inflater
 
-class MediaAdapter(private val items: List<MediaItem>) : RecyclerView.Adapter<MediaAdapter.MediaViewHolder>() {
+class MediaAdapter(private val items: List<MediaItem>, val listener: OnMediaClickListener )
+    : RecyclerView.Adapter<MediaAdapter.MediaViewHolder>() {
+
+    interface OnMediaClickListener{
+        fun onClick(mediaItem: MediaItem)
+    }
 
     override fun onCreateViewHolder(container: ViewGroup, viewType: Int): MediaViewHolder {
         //val view = LayoutInflater.from(container.context).inflate(R.layout.view_media_item, container, false)
@@ -22,6 +27,9 @@ class MediaAdapter(private val items: List<MediaItem>) : RecyclerView.Adapter<Me
     override fun onBindViewHolder(mediaHolder: MediaViewHolder, position: Int) {
 
         mediaHolder.bind(items[position])
+        mediaHolder.itemView.setOnClickListener {
+            listener.onClick(items[position])
+        }
     }
 
     class MediaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
