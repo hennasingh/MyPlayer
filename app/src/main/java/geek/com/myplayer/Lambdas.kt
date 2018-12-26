@@ -7,20 +7,15 @@ interface Callback {
     fun onCallback(result: String)
 }
 
-fun doAsync(x:Int, callback: Callback){
+fun doAsync(x:Int, callback: (String) -> Unit){
     //Background
-    callback.onCallback("Finished")
+    callback("Finished")
 }
 
 fun testing() {
 
-    //without Lambdas
-    doAsync(20, object :Callback {
-        override fun onCallback(result: String) {
-            print(result)
-        }
-    })
-
+    //With Lambdas
+    doAsync(20){ result -> print(result) }
 }
 
 fun lambdas() {
